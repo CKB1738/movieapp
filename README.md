@@ -10,7 +10,9 @@ The application is also a useful tool for user who is not big fan of TV show or 
 
 Since the application is a guide to TV shows and movies, it does not need to store any movies and TV shows resources on the end user device. It will maintain a catalogue of movies and TV shows, and a link to the corresponding streamer. But, a trailer will be provided in each movie and TV shows for the user to preview.
 
+A basic level of security will be required for each user of the application. Each user has their own profile, which contains personal information, a list of users’ favourite TV shows and movies, and users’ published comments. A user should only be able to view their own profile.
 
+The application is designed as a phone application, but it will be extensible so that future release can have a desktop-based interface.
 
 
 
