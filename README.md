@@ -12,7 +12,7 @@ Since the application is a guide to TV shows and movies, it does not need to sto
 
 A basic level of security will be required for each user of the application. Each user has their own profile, which contains personal information, a list of users’ favourite/watched TV shows and movies, and users’ published comments. A user should only be able to access their own profile.
 
-The application is designed as a phone application, but it will be extensible so that future release can have a desktop-based interface.
+The application is designed as a smart phone application, but it will be extensible so that future release can have a desktop-based interface.
 
 
 
