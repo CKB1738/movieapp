@@ -5,6 +5,7 @@ public class gogogo {
 
 
         System.out.println("kdkdkddkkd");
+        System.out.println("hope kills");
 
 
     }
