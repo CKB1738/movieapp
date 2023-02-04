@@ -4,7 +4,7 @@ public class gogogo {
     public static void main(String ...args){
 
 
-        System.out.println("kdkdkddkkd");
+        System.out.println("111111111111111111");
     }
 
 }
