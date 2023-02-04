@@ -1,4 +1,4 @@
-package com.example.go4tv;
+package com3350.go4tv;
 
 import android.content.Context;
 
