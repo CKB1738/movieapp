@@ -40,26 +40,27 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailsinghup" />
+        app:layout_constraintTop_toBottomOf="@+id/emailsingnup" />
 
     <Button
         android:id="@+id/signupbutton2"
         android:layout_width="375dp"
         android:layout_height="48dp"
         android:layout_marginTop="120dp"
+        android:onClick="launchLogInPage"
         android:text="SIGN UP"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signuppassword" />
 
     <EditText
-        android:id="@+id/emailsinghup"
+        android:id="@+id/emailsingnup"
         android:layout_width="375dp"
         android:layout_height="48dp"
         android:layout_marginTop="80dp"
         android:ems="10"
         android:hint="Email"
-        android:inputType="textPersonName"
+        android:inputType="textWebEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sinupusername" />

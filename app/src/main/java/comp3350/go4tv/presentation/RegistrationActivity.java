@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import comp3350.go4tv.R;
 
@@ -15,7 +16,7 @@ public class RegistrationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_registration);
     }
 
-    public void launchLogInPage(){
+    public void launchLogInPage(View v){
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
     }
