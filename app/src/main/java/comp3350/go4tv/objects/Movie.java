@@ -1,6 +1,5 @@
 package comp3350.go4tv.objects;
 
-import java.util.List;
 
 public class Movie {
     private final String name;

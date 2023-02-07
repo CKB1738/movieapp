@@ -20,6 +20,7 @@ public class User {
 
         this.userName = userName;
         this.email = email;
+        this.password = password;
         comments = new ArrayList<>();
     }
 
