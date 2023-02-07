@@ -1,7 +1,6 @@
 package comp3350.go4tv.persistence.stubs;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import comp3350.go4tv.objects.User;

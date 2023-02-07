@@ -1,15 +1,18 @@
 package comp3350.go4tv.objects;
 
-import androidx.annotation.Nullable;
+
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import comp3350.go4tv.R;
 
 public class User {
 
     private String userName;
     private String email;
-    private List<Comment> comments;
+    private final List<Comment> comments;
 
     private String password;
 
@@ -32,18 +35,20 @@ public class User {
         return comments;
     }
 
-    public boolean addComment(Comment comment){
-
-        return this.comments.add(comment);
+    public Comment addComment(Comment comment){
+        this.comments.add(comment);
+        return comment;
     }
+    public boolean deleteComment(Comment comment){
+        return this.comments.remove(comment);
+    }
+
 
     public String getPassword() {
         return password;
     }
 
-    public boolean deleteComment(Comment comment){
-        return this.comments.remove(comment);
-    }
+
 
     public void setEmail(String email) {
         this.email = email;
