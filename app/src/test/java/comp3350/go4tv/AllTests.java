@@ -21,7 +21,7 @@ import comp3350.go4tv.object.UserTest;
                 MovieTest.class,
                 CommentTest.class,
 
-                //EmailValidatorTest.class,
+                EmailValidatorTest.class,
                 FieldValidatorTest.class,
                 AccessUserTest.class,
                 ServiceTest.class

@@ -3,6 +3,7 @@ package comp3350.go4tv.business;
 import junit.framework.TestCase;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import comp3350.go4tv.business.validator.EmailValidator;
 
