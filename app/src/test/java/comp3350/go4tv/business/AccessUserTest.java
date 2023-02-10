@@ -61,12 +61,13 @@ public class AccessUserTest {
         System.out.println("\nstarting test insertUser.");
         AccessUser accessUser = new AccessUser();
         User newUser = new User("testName","test@myumanitoba.ca","testPassword");
-
         User testUser = accessUser.insertUser(newUser);
-
         assertNotNull(testUser);
-
         assertTrue(accessUser.getUsers().size() == 6);
+
+        User newUser1 = new User("Xin", "umnie2@myumanitoba.ca","12345abc");
+        assertNull(accessUser.insertUser(newUser1));
+
         System.out.println("End testInsertUser");
     }
 
