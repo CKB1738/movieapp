@@ -9,7 +9,7 @@ public class Service {
 
 
     public static synchronized UserPersistence getUserPersistence(){
-        if(userPersistence != null){
+        if(userPersistence == null){
             userPersistence = new UserPersistenceStub();
         }
 

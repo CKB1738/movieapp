@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import comp3350.go4tv.R;
+import comp3350.go4tv.business.AccessUser;
 import comp3350.go4tv.business.validator.EmailValidator;
 import comp3350.go4tv.business.validator.FieldValidator;
 
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     FieldValidator validUsername, validPassword;
     Button signInButton, signUpButton;
 
+    AccessUser accessUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,8 +57,11 @@ public class MainActivity extends AppCompatActivity {
         validUsername = new FieldValidator(username.getText().toString());
         validPassword = new FieldValidator(password.getText().toString());
 
+        //valid username and password
         if(validUsername.isValid() && validPassword.isValid()) {
             Toast.makeText(this, "Sign In successful", Toast.LENGTH_SHORT).show();
+            accessUser = new AccessUser();
+            accessUser.verifyUser(username.toString(),password.toString());
         }
         else{
             if (!validUsername.isValid()) {
