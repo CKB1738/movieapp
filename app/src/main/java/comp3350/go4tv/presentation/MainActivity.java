@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import comp3350.go4tv.R;
+import comp3350.go4tv.business.AccessUser;
 import comp3350.go4tv.business.validator.EmailValidator;
 import comp3350.go4tv.business.validator.FieldValidator;
 
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     FieldValidator validUsername, validPassword;
     Button signInButton, signUpButton;
 
+    AccessUser accessUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,9 +56,17 @@ public class MainActivity extends AppCompatActivity {
          * */
         validUsername = new FieldValidator(username.getText().toString());
         validPassword = new FieldValidator(password.getText().toString());
-
-        if(validUsername.isValid() && validPassword.isValid()) {
+        accessUser = new AccessUser();
+        //valid username and password
+        if(validUsername.isValid() && validPassword.isValid() && accessUser.verifyUser(username.getText().toString(),password.getText().toString())) {
             Toast.makeText(this, "Sign In successful", Toast.LENGTH_SHORT).show();
+
+                //after sign in go to temp main page
+                Intent i = new Intent(this, MainPageActivity.class);
+                i.putExtra("username", username.getText().toString());
+                startActivity(i);
+
+
         }
         else{
             if (!validUsername.isValid()) {
@@ -65,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
             else if (!validPassword.isValid()) {
                 password.setError("Please enter a valid password.");
             }
-            Toast.makeText(this, "Please check the details entered", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please check your username and password", Toast.LENGTH_SHORT).show();
         }
     }
 

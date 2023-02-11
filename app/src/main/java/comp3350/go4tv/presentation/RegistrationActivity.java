@@ -10,8 +10,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import comp3350.go4tv.R;
+import comp3350.go4tv.business.AccessUser;
 import comp3350.go4tv.business.validator.EmailValidator;
 import comp3350.go4tv.business.validator.FieldValidator;
+import comp3350.go4tv.objects.User;
 
 public class RegistrationActivity extends AppCompatActivity {
 
@@ -52,12 +54,21 @@ public class RegistrationActivity extends AppCompatActivity {
         validEmail = new EmailValidator(email.getText().toString());
         validUsername = new FieldValidator(username.getText().toString());
         validPassword = new FieldValidator(password.getText().toString());
-
+        AccessUser accessUser = new AccessUser();
         if(validUsername.isValid() && validEmail.isValid() && validPassword.isValid()) {
-            Toast.makeText(this, "Sign Up successful", Toast.LENGTH_SHORT).show();
 
-            Intent i = new Intent(this, MainActivity.class);
-            startActivity(i);
+            if(accessUser.findUser(username.getText().toString()) == null){
+                User newUser = new User(username.getText().toString(),email.getText().toString(),password.getText().toString());
+                accessUser.insertUser(newUser);
+                Toast.makeText(this, "Sign Up successful, please sign in.", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(this, MainActivity.class);
+                startActivity(i);
+            }else{
+                Toast.makeText(this, "Duplicate username, please change your username", Toast.LENGTH_SHORT).show();
+
+            }
+
+
         }
 
         else {

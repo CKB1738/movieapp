@@ -26,8 +26,7 @@ public class AccessUser {
         return Collections.unmodifiableList(users);
     }
     public boolean verifyUser(String username, String password){
-        userPersistence.verifyUser(username,password);
-        return false;
+        return userPersistence.verifyUser(username,password);
     }
 
     public User insertUser(User user){
@@ -35,22 +34,21 @@ public class AccessUser {
     }
 
 
-    public void findUser(String userName){
-        this.user = userPersistence.findUser(userName);
+    public User findUser(String userName){
+        return this.user = userPersistence.findUser(userName);
     }
 
-
-    public User updateUser(String newUsername, String newPassword, String newEmail){
+    //need to call find user first
+    public User updateUser(String oldUsername, String newUsername, String newPassword, String newEmail){
 
         return userPersistence.updateUser(this.user,newUsername, newPassword, newEmail);
 
     }
 
-    public void deleteUser(){
-        userPersistence.deleteUser(this.user);
-    }
+//    public void deleteUser(String username){
+//        findUser(username);
+//        userPersistence.deleteUser(this.user);
+//    }
 
-    public User getUserInfo(){
-        return userPersistence.getUserInfo(this.user);
-    }
+
 }
