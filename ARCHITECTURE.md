@@ -19,6 +19,8 @@ Application package contains the Service class, which used to reference the pers
 ### Business
 AccessUser class work togather with the Service class the interaction between the user interface and the stubs.
 
+Validator package contains two class, which can validate the field of user input and the email of user input.
+
 ### Objects
 Domain Specific objects, User class, Comment class and Movie class.
 
