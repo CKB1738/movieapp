@@ -1,12 +1,10 @@
 package comp3350.go4tv.Persistence;
 
 import static org.junit.Assert.*;
-//import org.junit.Before;
 
-import org.junit.Before;
 import org.junit.Test;
 
-import java.time.LocalDateTime;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,21 +12,6 @@ import comp3350.go4tv.objects.User;
 import comp3350.go4tv.persistence.stubs.UserPersistenceStub;
 
 public class UserPersistenceTest {
-
-        private UserPersistenceStub users = new UserPersistenceStub();
-
-
-        @Before
-        public void init(){
-            User user1 = new User("Emil", "emil123@gmail.com", "emil12345");
-            User user2 = new User("Craig", "craig@myumanitoba.ca", "123456789abc");
-
-            users.insertUser(user1);
-            users.insertUser(user2);
-        }
-
-
-
 
     @Test
     public void verifyUserTest(){
@@ -39,10 +22,10 @@ public class UserPersistenceTest {
         String password = "123456789abc";
         String email = "craig@myumanitoba.ca";
 
-        //User user = new User(name, email, password);
-        //UserPersistenceStub userPersistenceStub = new UserPersistenceStub();
-        //assertTrue(userPersistenceStub.verifyUser(user.getUserName(), user.getPassword()));
-        assertTrue(users.verifyUser(name,password));
+        User user = new User(name, email, password);
+        UserPersistenceStub userPersistenceStub = new UserPersistenceStub();
+        assertTrue(userPersistenceStub.verifyUser(user.getUserName(), user.getPassword()));
+        assertTrue(userPersistenceStub.verifyUser(name,password));
 
         System.out.println("Finished verifyUserTest");
     }
@@ -52,11 +35,12 @@ public class UserPersistenceTest {
     public void insertUserTest(){
         System.out.println("Starting insertUserTest");
 
-        User user1 = new User("Emil", "emil123@gmail.com", "emil12345");
+        User newUser = new User("Emil", "emil123@gmail.com", "emil12345");
         User user2 = new User("Craig", "craig@myumanitoba.ca", "123456789abc");
         UserPersistenceStub userPersistenceStub1 = new UserPersistenceStub();
-        assertNotNull(userPersistenceStub1.insertUser(user1));
+        assertNotNull(userPersistenceStub1.insertUser(newUser));
         assertNull(userPersistenceStub1.insertUser(user2));
+        userPersistenceStub1.deleteUser(user2);
 
         System.out.println("Finished insertUserTest");
     }
@@ -96,9 +80,25 @@ public class UserPersistenceTest {
     @Test
     public void deleteUserTest(){
         User user = new User("kwame", "kwame@gmail.com", "kwame12345");
+        User newUser = new User("Emil", "emil123@gmail.com", "emil12345");
         UserPersistenceStub userPersistenceStub = new UserPersistenceStub();
         userPersistenceStub.insertUser(user);
+        userPersistenceStub.insertUser(newUser);
         userPersistenceStub.deleteUser(user);
-       // assertEquals("Deleting user", 5,);
+        assertEquals("size should be 5", 6, userPersistenceStub.getUserList().size());
+
+        System.out.println("User deleted");
+
     }
+
+
+    @Test
+    public void findUserTest(){
+        User user = new User("kwame", "kwame@gmail.com", "kwame12345");
+        String username = "kwame";
+        UserPersistenceStub userPersistenceStub = new UserPersistenceStub();
+        userPersistenceStub.insertUser(user);
+        assertEquals(userPersistenceStub.findUser(username).getUserName(), user.getUserName());
+    }
+
 }
