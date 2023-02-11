@@ -1,6 +1,6 @@
-#COMP3350 G04 Iteration 1 Architecture
+# COMP3350 G04 Iteration 1 Architecture
 
-#h2  ddd
+# h2  ddd
 
 # Domain Specific Objects: Red
 # Presentation Tier: Green
