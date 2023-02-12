@@ -7,14 +7,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import comp3350.go4tv.R;
 import comp3350.go4tv.business.AccessUser;
 import comp3350.go4tv.objects.User;
 
-public class UserProfile extends AppCompatActivity {
+public class UserProfileActivity extends AppCompatActivity {
     EditText username, email, password;
     Button updateUsernameButton, updateEmailButton, updatePasswordButton;
     AccessUser accessUser;

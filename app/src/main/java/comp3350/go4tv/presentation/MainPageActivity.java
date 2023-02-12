@@ -36,7 +36,7 @@ public class MainPageActivity extends AppCompatActivity {
     };
 
     private void profileButtonClicked(View v) {
-        Intent i = new Intent(this,UserProfile.class);
+        Intent i = new Intent(this, UserProfileActivity.class);
         i.putExtra("username", userName);
         startActivity(i);
     }
