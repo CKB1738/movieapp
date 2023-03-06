@@ -29,7 +29,7 @@ public class UserProfileActivity extends AppCompatActivity {
         accessUser = new AccessUser();
         username = (EditText) findViewById(R.id.profileUsername);
         email = (EditText) findViewById(R.id.profileEmail);
-        password = (EditText) findViewById(R.id.profilePassword);
+        password = (EditText) findViewById(R.id.currentUserPassword);
         updateUsernameButton = (Button) findViewById(R.id.updateUsername);
         updateEmailButton = (Button) findViewById(R.id.updateEmail);
         updatePasswordButton = (Button) findViewById(R.id.updatePassword);
