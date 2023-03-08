@@ -39,7 +39,7 @@ public class UserPersistenceHSQLDB implements UserPersistence {
                 usr = rs.getString("USERNAME");
                 pass = rs.getString("PASSWORD");
                 if(usr.equals(username) && pass.equals(password)){
-                    return true ;
+                    return true;
                 }
             }
             rs.close();
