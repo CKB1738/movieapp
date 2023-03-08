@@ -18,6 +18,7 @@ public class UserPersistenceHSQLDB implements UserPersistence {
 
     private final String dbPath;
 
+
     public UserPersistenceHSQLDB(final String dbPath) {
         this.dbPath = dbPath;
     }
