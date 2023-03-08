@@ -1,5 +1,7 @@
 package comp3350.go4tv.persistence.hsqldb;
 
+import android.util.Log;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -22,6 +24,7 @@ public class UserPersistenceHSQLDB implements UserPersistence {
 
     private Connection connection() throws SQLException {
         return DriverManager.getConnection("jdbc:hsqldb:file:" + dbPath + ";shutdown=true", "SA", "");
+
     }
 
 
@@ -34,7 +37,7 @@ public class UserPersistenceHSQLDB implements UserPersistence {
         String pass = "";
         try (final Connection c = connection()) {
             final Statement st = c.createStatement();
-            final ResultSet rs = st.executeQuery("SELECT * FROM USER");
+            final ResultSet rs = st.executeQuery("SELECT * FROM USER WHERE USERNAME = 'Xin'");
             while (rs.next()) {
                 usr = rs.getString("USERNAME");
                 pass = rs.getString("PASSWORD");
