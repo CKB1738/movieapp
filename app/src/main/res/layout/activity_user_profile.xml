@@ -12,34 +12,21 @@
         android:id="@+id/profilePassword"
         android:layout_width="350dp"
         android:layout_height="48dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="140dp"
         android:ems="10"
         android:focusable="true"
         android:hint="Password"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileEmail" />
-
-    <EditText
-        android:id="@+id/profileUsername"
-        android:layout_width="350dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="150dp"
-        android:ems="10"
-        android:focusable="true"
-        android:hint="Username"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/profileEmail" />
 
     <EditText
         android:id="@+id/profileEmail"
         android:layout_width="350dp"
         android:layout_height="48dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="140dp"
         android:ems="10"
         android:focusable="true"
         android:hint="Email"
@@ -50,17 +37,6 @@
         app:layout_constraintTop_toBottomOf="@+id/profileUsername" />
 
     <Button
-        android:id="@+id/updateUsername"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:text="Update Username"
-        app:layout_constraintBottom_toTopOf="@+id/profileEmail"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileUsername"
-        app:layout_constraintVertical_bias="0.25" />
-
-    <Button
         android:id="@+id/updateEmail"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
@@ -69,7 +45,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profileEmail"
-        app:layout_constraintVertical_bias="0.25" />
+        app:layout_constraintVertical_bias="0.45999998" />
 
     <Button
         android:id="@+id/updatePassword"
@@ -78,9 +54,21 @@
         android:text="Update Password"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profilePassword"
-        app:layout_constraintVertical_bias="0.100000024" />
+        app:layout_constraintVertical_bias="0.45999998" />
+
+    <TextView
+        android:id="@+id/profileUsername"
+        android:layout_width="350dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="140dp"
+        android:text="Username"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

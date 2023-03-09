@@ -44,16 +44,12 @@ public class AccessUser {
     }
 
     //need to call find user first
-    public User updateUser(String oldUsername, String newUsername, String newPassword, String newEmail){
+    public User updateUser(String oldUsername, String newPassword, String newEmail){
 
-        return userPersistence.updateUser(oldUsername,newUsername, newPassword, newEmail);
+        return userPersistence.updateUser(oldUsername, newPassword, newEmail);
 
     }
 
-//    public void deleteUser(String username){
-//        findUser(username);
-//        userPersistence.deleteUser(this.user);
-//    }
 
 
 }

@@ -10,7 +10,7 @@ public interface UserPersistence {
 
     User insertUser(User user);
 
-    User updateUser(String oldUsername, String newUsername, String newPassword, String newEmail);
+    User updateUser(String oldUsername, String newPassword, String newEmail);
 
     User getUserInfo(User user);
 

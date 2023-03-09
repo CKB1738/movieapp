@@ -90,18 +90,19 @@ public class UserPersistenceHSQLDB implements UserPersistence {
     }
 
     @Override
-    public User updateUser(String oldUsername, String newUsername, String newPassword, String newEmail) {
+    public User updateUser(String oldUsername, String newPassword, String newEmail) {
 
 
         try (final Connection c = connection()) {
 
             if(findUser(oldUsername) != null) {
-                final PreparedStatement pr = c.prepareStatement("UPDATE USER SET USERNAME = ?, PASSWORD = ?, EMAIL = ? WHERE USERNAME = ?");
-                pr.setString(1, newUsername);
-                pr.setString(2, newPassword);
-                pr.setString(3, newEmail);
-                pr.setString(4, oldUsername);
-                return new User(newUsername,newPassword,newEmail);
+                final PreparedStatement pr = c.prepareStatement("UPDATE USER SET PASSWORD = ?, EMAIL = ? WHERE USERNAME = ?");
+
+                pr.setString(1, newPassword);
+                pr.setString(2, newEmail);
+                pr.setString(3, oldUsername);
+                pr.executeUpdate();
+                return new User(oldUsername,newEmail,newPassword);
             }
         } catch (final SQLException e){
             throw new PersistenceException(e);
@@ -179,7 +180,7 @@ public class UserPersistenceHSQLDB implements UserPersistence {
                 email = rs.getString("EMAIL");
 
                 if(usr.equals(username)){
-                    User currUser = new User(usr,pass,email);
+                    User currUser = new User(usr,email,pass);
                     return currUser;
                 }
             }

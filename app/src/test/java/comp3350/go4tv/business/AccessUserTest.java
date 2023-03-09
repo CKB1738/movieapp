@@ -90,14 +90,13 @@ public class AccessUserTest {
 
         assertNotNull(testUser);
 
-        accessUser.updateUser("Xin","Xin Nie","my new password", "my new email");
+        accessUser.updateUser("Xin","my new password", "my new email");
 
         User updatedUser = accessUser.findUser("Xin Nie");
         assertNotNull(updatedUser);
         assertTrue(updatedUser.getEmail().equals("my new email"));
         assertTrue(updatedUser.getPassword().equals("my new password"));
-        assertTrue(updatedUser.getUserName().equals("Xin Nie"));
-        accessUser.updateUser("Xin Nie","Xin","12345abc", "umnie2@myumanitoba.ca");
+        accessUser.updateUser("Xin","12345abc", "umnie2@myumanitoba.ca");
         System.out.println("End test UpdateUser");
 
     }
