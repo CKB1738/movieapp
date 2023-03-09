@@ -40,10 +40,10 @@ public class UserPersistenceStub implements UserPersistence {
         return user;
     }
 
-    public User updateUser(User user,String newUsername, String newPassword, String newEmail){
+    public User updateUser(String oldUsername ,String newUsername, String newPassword, String newEmail){
 
         for(User u : users){
-            if(u.equals(user)){//find user
+            if(u.getUserName().equals(oldUsername)){//find user
                 if(!u.getUserName().equals(newUsername)){
                     u.setUserName(newUsername);
                 }
@@ -53,9 +53,12 @@ public class UserPersistenceStub implements UserPersistence {
                 if(!u.getEmail().equals(newEmail)){
                     u.setEmail(newEmail);
                 }
+                User currUser = findUser(newUsername);
+                return  currUser;
             }
-            return user;
+
         }
+
         return null;
     }
 

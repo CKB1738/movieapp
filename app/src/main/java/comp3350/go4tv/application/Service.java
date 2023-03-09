@@ -1,5 +1,7 @@
 package comp3350.go4tv.application;
 
+import android.util.Log;
+
 import comp3350.go4tv.persistence.UserPersistence;
 import comp3350.go4tv.persistence.hsqldb.UserPersistenceHSQLDB;
 import comp3350.go4tv.persistence.stubs.UserPersistenceStub;
@@ -13,6 +15,7 @@ public class Service {
         if(userPersistence == null){
 //            userPersistence = new UserPersistenceStub();
             userPersistence = new UserPersistenceHSQLDB(Main.getDBPathName());
+            Log.d("tttt",Main.getDBPathName());
         }
 
         return userPersistence;

@@ -55,7 +55,7 @@ public class UserPersistenceTest {
         String newEmail = "kwame@gmail.com";
         UserPersistenceStub userPersistenceStub = new UserPersistenceStub();
         userPersistenceStub.insertUser(user);
-        assertNotNull(userPersistenceStub.updateUser(user,newUsername, newPassword, newEmail));
+        assertNotNull(userPersistenceStub.updateUser(user.getUserName(),newUsername, newPassword, newEmail));
         System.out.println("Username change successful\n");
 
         System.out.println("----------Finished updateUserTest----------\n");

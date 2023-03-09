@@ -20,6 +20,11 @@ public class AccessUser {
         users = null;
     }
 
+    public AccessUser(final UserPersistence userPersistence){
+        this();
+        this.userPersistence = userPersistence;
+    }
+
     public List<User> getUsers(){
         users = userPersistence.getUserList();
 
@@ -41,7 +46,7 @@ public class AccessUser {
     //need to call find user first
     public User updateUser(String oldUsername, String newUsername, String newPassword, String newEmail){
 
-        return userPersistence.updateUser(this.user,newUsername, newPassword, newEmail);
+        return userPersistence.updateUser(oldUsername,newUsername, newPassword, newEmail);
 
     }
 
