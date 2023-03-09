@@ -92,7 +92,7 @@ public class AccessUserTest {
 
         accessUser.updateUser("Xin","my new password", "my new email");
 
-        User updatedUser = accessUser.findUser("Xin Nie");
+        User updatedUser = accessUser.findUser("Xin");
         assertNotNull(updatedUser);
         assertTrue(updatedUser.getEmail().equals("my new email"));
         assertTrue(updatedUser.getPassword().equals("my new password"));

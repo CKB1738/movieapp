@@ -3,42 +3,26 @@ package comp3350.go4tv.objects;
 
 public class Movie {
     private final String name;
+    private final String description;
+    private final int rating;
 
-    private final String people;
 
-    private final String overview;
-
-    private final int year;
-
-    private final String genre;
-
-    public Movie(String name, String people, String overview, int year, String genre){
+    public Movie(String name, String description, int rating){
         this.name = name;
-        this.genre = genre;
-        this.overview = overview;
-        this.year = year;
-        this.people = people;
+        this.description = description;
+        this.rating = rating;
     }
 
-    public int getYear() {
-        return year;
-    }
-
-    public String getGenre() {
-        return genre;
-    }
 
     public String getName() {
         return name;
     }
 
-    public String getOverview() {
-        return overview;
+    public String getDescription() {
+        return description;
     }
 
-    public String getPeople() {
-        return people;
+    public int getRating() {
+        return rating;
     }
-
-
 }

@@ -59,8 +59,8 @@ public class UserTest {
     @Test
     public void testUserComment(){
         User user = new User("Xin","umnie2@myumanitoba.ca","12345abc");
-        Movie movie = new Movie("Inception","Leonardo Dicaprio", "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.",
-                2010,"Adventure");
+        Movie movie = new Movie("Inception", "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.",
+                10);
         LocalDateTime time = LocalDateTime.now();
         Comment comment1 = new Comment("This is a good movie", movie,user, time);
 
