@@ -49,6 +49,7 @@
                 app:cardElevation="5dp">
 
                 <ImageView
+                    android:id="@+id/image1"
                     android:layout_width="1in"
                     android:layout_height="1in"
                     android:layout_margin="5dp"
@@ -57,11 +58,11 @@
                     android:src="@drawable/topgun" />
 
                 <TextView
+                    android:id="@+id/movieList1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:paddingLeft="1.1in"
-                    android:text="Movie Name and  Descriptions"
                     android:textColor="@color/purple_500"
                     android:textSize="22sp"
                     android:textStyle="bold" />
@@ -78,6 +79,7 @@
                 app:cardElevation="5dp">
 
                 <ImageView
+                    android:id="@+id/image2"
                     android:layout_width="1in"
                     android:layout_height="1in"
                     android:layout_margin="5dp"
@@ -86,11 +88,11 @@
                     android:src="@drawable/topgun" />
 
                 <TextView
+                    android:id="@+id/movieList2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:paddingLeft="1.1in"
-                    android:text="Movie Name and Descriptions"
                     android:textColor="@color/purple_500"
                     android:textSize="23sp"
                     android:textStyle="bold" />
@@ -107,6 +109,7 @@
                 app:cardElevation="5dp">
 
                 <ImageView
+                    android:id="@+id/image3"
                     android:layout_width="1in"
                     android:layout_height="1in"
                     android:layout_margin="5dp"
@@ -115,11 +118,11 @@
                     android:src="@drawable/topgun" />
 
                 <TextView
+                    android:id="@+id/movieList3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:paddingLeft="1.1in"
-                    android:text="Movie Name and Descriptions"
                     android:textColor="@color/purple_500"
                     android:textSize="23sp"
                     android:textStyle="bold" />
@@ -136,6 +139,7 @@
                 app:cardElevation="5dp">
 
                 <ImageView
+                    android:id="@+id/image4"
                     android:layout_width="1in"
                     android:layout_height="1in"
                     android:layout_margin="5dp"
@@ -144,11 +148,22 @@
                     android:src="@drawable/topgun" />
 
                 <TextView
+                    android:id="@+id/movieList4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:paddingLeft="1.1in"
                     android:text="Movie Name and Descriptions"
+                    android:textColor="@color/purple_500"
+                    android:textSize="23sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/movieList"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:paddingLeft="1.1in"
                     android:textColor="@color/purple_500"
                     android:textSize="23sp"
                     android:textStyle="bold" />
@@ -165,6 +180,7 @@
                 app:cardElevation="5dp">
 
                 <ImageView
+                    android:id="@+id/image5"
                     android:layout_width="1in"
                     android:layout_height="1in"
                     android:layout_margin="5dp"
@@ -173,76 +189,17 @@
                     android:src="@drawable/topgun" />
 
                 <TextView
+                    android:id="@+id/movieList5"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:paddingLeft="1.1in"
-                    android:text="Movie Name and Descriptions"
                     android:textColor="@color/purple_500"
                     android:textSize="23sp"
                     android:textStyle="bold" />
 
 
             </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="1in"
-                android:layout_margin="5dp"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="5dp">
-
-                <ImageView
-                    android:layout_width="1in"
-                    android:layout_height="1in"
-                    android:layout_margin="5dp"
-                    android:background="@color/white"
-                    android:elevation="3dp"
-                    android:src="@drawable/topgun" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:paddingLeft="1.1in"
-                    android:text="Movie Name and Descriptions"
-                    android:textColor="@color/purple_500"
-                    android:textSize="23sp"
-                    android:textStyle="bold" />
-
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="1in"
-                android:layout_margin="5dp"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="5dp"
-                app:cardElevation="5dp">
-
-                <ImageView
-                    android:layout_width="1in"
-                    android:layout_height="1in"
-                    android:layout_margin="5dp"
-                    android:background="@color/white"
-                    android:elevation="3dp"
-                    android:src="@drawable/topgun" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:paddingLeft="1.1in"
-                    android:text="Movie Name and Descriptions"
-                    android:textColor="@color/purple_500"
-                    android:textSize="23sp"
-                    android:textStyle="bold" />
-
-
-            </androidx.cardview.widget.CardView>
-
 
         </LinearLayout>
     </ScrollView>

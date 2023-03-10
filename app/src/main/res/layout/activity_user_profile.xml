@@ -9,7 +9,7 @@
     tools:layout_editor_absoluteY="48dp">
 
     <EditText
-        android:id="@+id/currentUserPassword"
+        android:id="@+id/profilePassword"
         android:layout_width="350dp"
         android:layout_height="48dp"
         android:layout_marginTop="140dp"
@@ -41,7 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:text="Update Email"
-        app:layout_constraintBottom_toTopOf="@+id/currentUserPassword"
+        app:layout_constraintBottom_toTopOf="@+id/profilePassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profileEmail"
