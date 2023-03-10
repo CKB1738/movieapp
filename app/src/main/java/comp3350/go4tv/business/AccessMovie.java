@@ -21,6 +21,12 @@ public class AccessMovie {
         movies = null;
     }
 
+    public AccessMovie(final MoviePersistence moviePersistence){
+        this();
+        this.moviePersistence = moviePersistence;
+
+    }
+
     public Movie getMovie(String movieName){
         return moviePersistence.getMovie(movieName);
 

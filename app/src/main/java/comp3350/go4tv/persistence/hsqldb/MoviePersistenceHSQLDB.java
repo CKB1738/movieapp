@@ -25,7 +25,7 @@ public class MoviePersistenceHSQLDB implements MoviePersistence {
     }
 
     @Override
-    public Movie getMovie(String movieId){
+    public Movie getMovie(String movieName){
         try (final Connection c = connection()) {
             String id = "";
             String name = "";
@@ -34,13 +34,12 @@ public class MoviePersistenceHSQLDB implements MoviePersistence {
             final Statement st = c.createStatement();
             final ResultSet rs = st.executeQuery("SELECT * FROM MOVIE");
             while (rs.next()) {
-                id = rs.getString("MOVIEID");
                 name = rs.getString("NAME");
                 description = rs.getString("DESCRIPTION");
                 rating = rs.getInt("RATING");
 
-                if(id.equals(movieId)){
-                    Movie currMovie = new Movie(id,name,description, rating);
+                if(id.equals(movieName)){
+                    Movie currMovie = new Movie(name,description, rating);
                     return currMovie;
                 }
             }
@@ -63,11 +62,10 @@ public class MoviePersistenceHSQLDB implements MoviePersistence {
             final Statement st = c.createStatement();
             final ResultSet rs = st.executeQuery("SELECT * FROM MOVIE");
             while (rs.next()) {
-                id = rs.getString("MOVIEID");
                 name = rs.getString("NAME");
                 description = rs.getString("DESCRIPTION");
                 rating = rs.getInt("RATING");
-                Movie currMovie = new Movie(id,name,description, rating);
+                Movie currMovie = new Movie(name,description, rating);
 
                 movieList.add(currMovie);
             }

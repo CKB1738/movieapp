@@ -15,7 +15,7 @@ public class AccessMovieTest {
 
     @Before
     public void setUp(){
-        this.accessMovie = new AccessMovie();
+        this.accessMovie = new AccessMovie(new MoviePersistenceStub());
     }
 
     @Test
