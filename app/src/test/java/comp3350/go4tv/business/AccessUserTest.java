@@ -2,22 +2,29 @@ package comp3350.go4tv.business;
 
 import comp3350.go4tv.business.AccessUser;
 import comp3350.go4tv.objects.User;
+import comp3350.go4tv.persistence.stubs.UserPersistenceStub;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 
 public class AccessUserTest {
+    private AccessUser accessUser;
 
+    @Before
+    public void setUp(){
+        this.accessUser = new AccessUser(new UserPersistenceStub());
+    }
 
     @Test
     public void testGetUsers(){
         System.out.println("\nstarting test getUsers.");
-        AccessUser accessUser = new AccessUser();
 
         assertNotNull(accessUser);
         assertNotNull(accessUser.getUsers());
+        System.out.println(accessUser.getUsers().size());
         assertTrue(accessUser.getUsers().size() == 5);
 
         System.out.println("End testing getUsers");
@@ -27,7 +34,7 @@ public class AccessUserTest {
     public void testFindUser(){
 
         System.out.println("\nstarting test findUser.");
-        AccessUser accessUser = new AccessUser();
+//        AccessUser accessUser = new AccessUser();
 
         assertNotNull(accessUser);
         User testUser = accessUser.findUser("Xin");
@@ -41,7 +48,7 @@ public class AccessUserTest {
     public void testVerifyUser(){
 
         System.out.println("\nstarting test verifyUser.");
-        AccessUser accessUser = new AccessUser();
+//        AccessUser accessUser = new AccessUser();
 
         assertNotNull(accessUser);
         assertTrue(accessUser.verifyUser("Xin","12345abc"));
@@ -59,7 +66,7 @@ public class AccessUserTest {
     public void testInsertUser(){
 
         System.out.println("\nstarting test insertUser.");
-        AccessUser accessUser = new AccessUser();
+//        AccessUser accessUser = new AccessUser();
         User newUser = new User("testName","test@myumanitoba.ca","testPassword");
         User testUser = accessUser.insertUser(newUser);
         assertNotNull(testUser);
@@ -75,7 +82,7 @@ public class AccessUserTest {
     public void testUpdateUser(){
 
         System.out.println("\nstarting test updateUser.");
-        AccessUser accessUser = new AccessUser();
+//        AccessUser accessUser = new AccessUser();
 
         assertNotNull(accessUser);
 
@@ -83,14 +90,13 @@ public class AccessUserTest {
 
         assertNotNull(testUser);
 
-        accessUser.updateUser("Xin","Xin Nie","my new password", "my new email");
+        accessUser.updateUser("Xin","my new password", "my new email");
 
-        User updatedUser = accessUser.findUser("Xin Nie");
+        User updatedUser = accessUser.findUser("Xin");
         assertNotNull(updatedUser);
         assertTrue(updatedUser.getEmail().equals("my new email"));
         assertTrue(updatedUser.getPassword().equals("my new password"));
-        assertTrue(updatedUser.getUserName().equals("Xin Nie"));
-        accessUser.updateUser("Xin Nie","Xin","12345abc", "umnie2@myumanitoba.ca");
+        accessUser.updateUser("Xin","12345abc", "umnie2@myumanitoba.ca");
         System.out.println("End test UpdateUser");
 
     }
