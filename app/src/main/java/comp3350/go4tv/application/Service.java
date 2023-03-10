@@ -16,7 +16,6 @@ public class Service {
 
     public static synchronized UserPersistence getUserPersistence(){
         if(userPersistence == null){
-//            userPersistence = new UserPersistenceStub();
             userPersistence = new UserPersistenceHSQLDB(Main.getDBPathName());
         }
 
