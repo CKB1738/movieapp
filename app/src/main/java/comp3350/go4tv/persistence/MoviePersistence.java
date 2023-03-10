@@ -7,7 +7,7 @@ import comp3350.go4tv.objects.Movie;
 
 public interface MoviePersistence {
 
-    Movie getMovie(String movieName);
+    Movie getMovie(String movieId);
 
     List<Movie> getListOfMovie();
 
