@@ -12,15 +12,13 @@ public class MovieTest {
 
 
         System.out.println("\nStarting testMovie");
-        Movie movie = new Movie("Inception","Leonardo Dicaprio", "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.",
-                                    2010,"Adventure");
+        Movie movie = new Movie("Inception","A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.",
+                                    10);
 
         assertNotNull(movie);
         assertTrue("Inception".equals(movie.getName()));
-        assertTrue("Leonardo Dicaprio".equals(movie.getPeople()));
-        assertTrue("A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.".equals(movie.getOverview()));
-        assertTrue(2010 == movie.getYear());
-        assertTrue("Adventure".equals(movie.getGenre()));
+        assertTrue("A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.".equals(movie.getDescription()));
+        assertTrue(10 == movie.getRating());
 
         System.out.println("Finishing testMovie");
     }
