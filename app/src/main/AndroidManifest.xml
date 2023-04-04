@@ -5,18 +5,20 @@
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
-        android:hardwareAccelerated="false"
-        android:largeHeap="true"
         android:fullBackupContent="@xml/backup_rules"
+        android:hardwareAccelerated="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/Theme.Go4TV"
         tools:targetApi="31">
         <activity
+            android:name=".presentation.FavouriteListActivity"
+            android:exported="false" />
+        <activity
             android:name=".presentation.UserProfileActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".presentation.MainPageActivity"
             android:exported="false" />

@@ -61,14 +61,26 @@
 
     <TextView
         android:id="@+id/profileUsername"
-        android:layout_width="350dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="140dp"
+        android:layout_width="150dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="108dp"
         android:text="Username"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintHorizontal_bias="0.172"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/movieListButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="My Movies"
+        app:layout_constraintBottom_toTopOf="@+id/profileEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toEndOf="@+id/profileUsername"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.437" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

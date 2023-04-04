@@ -45,11 +45,11 @@ public class MainPageActivity extends AppCompatActivity {
         image4 = (ImageView) findViewById(R.id.image4);
         image5 = (ImageView) findViewById(R.id.image5);
 
-        image1.setImageResource(R.drawable.litlle_dixie);
-        image2.setImageResource(R.drawable.plane);
-        image3.setImageResource(R.drawable.puss_in_boots);
-        image4.setImageResource(R.drawable.black_panther);
-        image5.setImageResource(R.drawable.knock_at_the_cabin);
+        image1.setImageResource(R.drawable.knock_at_the_cabin);
+        image2.setImageResource(R.drawable.little_dixie);
+        image3.setImageResource(R.drawable.plane);
+        image4.setImageResource(R.drawable.puss_in_boots);
+        image5.setImageResource(R.drawable.black_panther);
 
         movie1.setText(movies.get(1).getName());
         movie2.setText(movies.get(2).getName());

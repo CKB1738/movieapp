@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,7 +17,7 @@ import comp3350.go4tv.objects.User;
 public class UserProfileActivity extends AppCompatActivity {
     EditText email, password;
     TextView username;
-    Button updateUsernameButton, updateEmailButton, updatePasswordButton;
+    Button showFavouriteListButton, updateEmailButton, updatePasswordButton;
     AccessUser accessUser;
     User currentUser;
     String usernameString;
@@ -37,10 +36,11 @@ public class UserProfileActivity extends AppCompatActivity {
 
         updateEmailButton = (Button) findViewById(R.id.updateEmail);
         updatePasswordButton = (Button) findViewById(R.id.updatePassword);
-
+        showFavouriteListButton = (Button) findViewById(R.id.movieListButton);
 
         updateEmailButton.setOnClickListener(updateEmailButtonListener);
         updatePasswordButton.setOnClickListener(updatePasswordButtonListener);
+        showFavouriteListButton.setOnClickListener(showFavouriteListButtonListener);
 
         Intent i = getIntent();
         usernameString = i.getStringExtra("username");
@@ -66,7 +66,21 @@ public class UserProfileActivity extends AppCompatActivity {
         public void onClick(View v) {updatePasswordButtonClicked(v);}
     };
 
+    private View.OnClickListener showFavouriteListButtonListener = new View.OnClickListener(){
 
+        @Override public void onClick(View v){
+            showMyFavouriteList(v);
+        }
+    };
+
+
+    private void showMyFavouriteList(View v){
+
+        Intent i  = new Intent(this, FavouriteListActivity.class);
+        i.putExtra("username",usernameString);
+        startActivity(i);
+
+    }
     private void updateEmailButtonClicked(View v) {
         String newEmail = email.getText().toString();
         User currUser = accessUser.updateUser(usernameString, currentUser.getPassword(), newEmail);
