@@ -37,7 +37,7 @@ public class MainPageActivity extends AppCompatActivity {
         profileButton.setOnClickListener(profileButtonListener);
 
         accessMovie = new AccessMovie(Service.getMoviePersistence());
-        List<Movie> movies = accessMovie.getListOfMovie();
+        movies = accessMovie.getListOfMovie();
         movie1 = (TextView) findViewById(R.id.movieList1);
         movie1.setOnClickListener(movieClickListener);
         movie2 = (TextView) findViewById(R.id.movieList2);
@@ -61,11 +61,11 @@ public class MainPageActivity extends AppCompatActivity {
         image4.setImageResource(R.drawable.black_panther);
         image5.setImageResource(R.drawable.knock_at_the_cabin);
 
-        movie1.setText(movies.get(0).getName());
-        movie2.setText(movies.get(1).getName());
-        movie3.setText(movies.get(2).getName());
-        movie4.setText(movies.get(3).getName());
-        movie5.setText(movies.get(4).getName());
+        movie1.setText(movies.get(1).getName());
+        movie2.setText(movies.get(2).getName());
+        movie3.setText(movies.get(3).getName());
+        movie4.setText(movies.get(4).getName());
+        movie5.setText(movies.get(0).getName());
 
         Intent i = getIntent();
         userName = i.getStringExtra("username");
@@ -74,7 +74,7 @@ public class MainPageActivity extends AppCompatActivity {
 
     }
 
-    private View.OnClickListener profileButtonListener = new View.OnClickListener() {
+    private final View.OnClickListener profileButtonListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             profileButtonClicked(v);
@@ -93,33 +93,47 @@ public class MainPageActivity extends AppCompatActivity {
             int movieIndex = -1;
             switch (v.getId()) {
                 case R.id.movieList1:
+                    Intent intent1 = new Intent(MainPageActivity.this, MovieDetailsActivity.class);
+                    intent1.putExtra("movieName", movies.get(1).getName());
+                    intent1.putExtra("movieDescription", movies.get(1).getDescription());
+                    intent1.putExtra("movieRating", movies.get(1).getRating());
+                    startActivity(intent1);
                     movieIndex = 0;
                     break;
                 case R.id.movieList2:
+                    Intent intent2 = new Intent(MainPageActivity.this, MovieDetailsActivity.class);
+                    intent2.putExtra("movieName", movies.get(2).getName());
+                    intent2.putExtra("movieDescription", movies.get(2).getDescription());
+                    intent2.putExtra("movieRating", movies.get(2).getRating());
+                    startActivity(intent2);
                     movieIndex = 1;
                     break;
                 case R.id.movieList3:
+                    Intent intent3 = new Intent(MainPageActivity.this, MovieDetailsActivity.class);
+                    intent3.putExtra("movieName", movies.get(3).getName());
+                    intent3.putExtra("movieDescription", movies.get(3).getDescription());
+                    intent3.putExtra("movieRating", movies.get(3).getRating());
+                    startActivity(intent3);
                     movieIndex = 2;
                     break;
                 case R.id.movieList4:
+                    Intent intent4 = new Intent(MainPageActivity.this, MovieDetailsActivity.class);
+                    intent4.putExtra("movieName", movies.get(4).getName());
+                    intent4.putExtra("movieDescription", movies.get(4).getDescription());
+                    intent4.putExtra("movieRating", movies.get(4).getRating());
+                    startActivity(intent4);
                     movieIndex = 3;
                     break;
                 case R.id.movieList5:
+                    Intent intent5 = new Intent(MainPageActivity.this, MovieDetailsActivity.class);
+                    intent5.putExtra("movieName", movies.get(0).getName());
+                    intent5.putExtra("movieDescription", movies.get(0).getDescription());
+                    intent5.putExtra("movieRating", movies.get(0).getRating());
+                    startActivity(intent5);
                     movieIndex = 4;
                     break;
             }
 
-            if (movieIndex >= 0) {
-                Intent intent = new Intent(MainPageActivity.this, MovieDetailsActivity.class);
-                String dummyName = "Dummy Movie " + (movieIndex + 1);
-                String dummyDescription = "This is a dummy description for Dummy Movie " + (movieIndex + 1);
-                double dummyRating = 4.5;
-                intent.putExtra("name", dummyName);
-                intent.putExtra("description", dummyDescription);
-                intent.putExtra("rating", dummyRating);
-                startActivity(intent);
-
-            }
         }
     };
 
