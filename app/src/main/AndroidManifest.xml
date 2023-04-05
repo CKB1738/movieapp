@@ -14,7 +14,7 @@
         android:theme="@style/Theme.Go4TV"
         tools:targetApi="31">
         <activity
-            android:name=".presentation.FavouriteListActivity"
+            android:name=".presentation.MovieDetailsActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.UserProfileActivity"
