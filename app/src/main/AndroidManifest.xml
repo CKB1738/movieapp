@@ -16,6 +16,8 @@
         <activity
             android:name=".presentation.MovieDetailsActivity"
             android:exported="false" />
+        <activity android:name=".presentation.FavouriteListActivity"
+            android:exported="false"/>
         <activity
             android:name=".presentation.UserProfileActivity"
             android:exported="true"></activity>

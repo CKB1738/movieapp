@@ -91,45 +91,44 @@ public class MainPageActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             int movieIndex = -1;
+            Intent i = new Intent(MainPageActivity.this, MovieDetailsActivity.class);
+            i.putExtra("userName",userName);
             switch (v.getId()) {
                 case R.id.movieList1:
-                    Intent intent1 = new Intent(MainPageActivity.this, MovieDetailsActivity.class);
-                    intent1.putExtra("movieName", movies.get(1).getName());
-                    intent1.putExtra("movieDescription", movies.get(1).getDescription());
-                    intent1.putExtra("movieRating", movies.get(1).getRating());
-                    startActivity(intent1);
+
+                    i.putExtra("movieName", movies.get(1).getName());
+                    i.putExtra("movieDescription", movies.get(1).getDescription());
+                    i.putExtra("movieRating", movies.get(1).getRating());
+                    startActivity(i);
                     movieIndex = 0;
                     break;
                 case R.id.movieList2:
-                    Intent intent2 = new Intent(MainPageActivity.this, MovieDetailsActivity.class);
-                    intent2.putExtra("movieName", movies.get(2).getName());
-                    intent2.putExtra("movieDescription", movies.get(2).getDescription());
-                    intent2.putExtra("movieRating", movies.get(2).getRating());
-                    startActivity(intent2);
+
+                    i.putExtra("movieName", movies.get(2).getName());
+                    i.putExtra("movieDescription", movies.get(2).getDescription());
+                    i.putExtra("movieRating", movies.get(2).getRating());
+                    startActivity(i);
                     movieIndex = 1;
                     break;
                 case R.id.movieList3:
-                    Intent intent3 = new Intent(MainPageActivity.this, MovieDetailsActivity.class);
-                    intent3.putExtra("movieName", movies.get(3).getName());
-                    intent3.putExtra("movieDescription", movies.get(3).getDescription());
-                    intent3.putExtra("movieRating", movies.get(3).getRating());
-                    startActivity(intent3);
+                    i.putExtra("movieName", movies.get(3).getName());
+                    i.putExtra("movieDescription", movies.get(3).getDescription());
+                    i.putExtra("movieRating", movies.get(3).getRating());
+                    startActivity(i);
                     movieIndex = 2;
                     break;
                 case R.id.movieList4:
-                    Intent intent4 = new Intent(MainPageActivity.this, MovieDetailsActivity.class);
-                    intent4.putExtra("movieName", movies.get(4).getName());
-                    intent4.putExtra("movieDescription", movies.get(4).getDescription());
-                    intent4.putExtra("movieRating", movies.get(4).getRating());
-                    startActivity(intent4);
+                    i.putExtra("movieName", movies.get(4).getName());
+                    i.putExtra("movieDescription", movies.get(4).getDescription());
+                    i.putExtra("movieRating", movies.get(4).getRating());
+                    startActivity(i);
                     movieIndex = 3;
                     break;
                 case R.id.movieList5:
-                    Intent intent5 = new Intent(MainPageActivity.this, MovieDetailsActivity.class);
-                    intent5.putExtra("movieName", movies.get(0).getName());
-                    intent5.putExtra("movieDescription", movies.get(0).getDescription());
-                    intent5.putExtra("movieRating", movies.get(0).getRating());
-                    startActivity(intent5);
+                    i.putExtra("movieName", movies.get(0).getName());
+                    i.putExtra("movieDescription", movies.get(0).getDescription());
+                    i.putExtra("movieRating", movies.get(0).getRating());
+                    startActivity(i);
                     movieIndex = 4;
                     break;
             }

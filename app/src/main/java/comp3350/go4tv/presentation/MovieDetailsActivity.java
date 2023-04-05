@@ -9,17 +9,21 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import comp3350.go4tv.R;
-
+import comp3350.go4tv.application.Service;
+import comp3350.go4tv.business.AccessFavouriteMovie;
+import comp3350.go4tv.objects.Movie;
 
 
 public class MovieDetailsActivity extends AppCompatActivity {
 
     String userName;
     Button favouriteButton;
-
-
+    String movieName;
+    String movieDescription;
+    String movieRating;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,16 +32,11 @@ public class MovieDetailsActivity extends AppCompatActivity {
         favouriteButton = (Button) findViewById(R.id.favouriteButton);
         favouriteButton.setOnClickListener(favouriteButtonListener);
 
-
-        // Get the movie details from the intent
-//        Bundle extras = getIntent().getExtras();
-//        String name = extras.getString("name", "Movie Name");
-//        String description = extras.getString("description", "Movie Description");
-//        double rating = extras.getDouble("rating", 0);
         Intent i = getIntent();
-        String movieName = i.getStringExtra("movieName");
-        String movieDescription = i.getStringExtra("movieDescription");
-        String movieRating = i.getStringExtra("movieRating");
+        movieName = i.getStringExtra("movieName");
+        movieDescription = i.getStringExtra("movieDescription");
+        movieRating = i.getStringExtra("movieRating");
+        userName = i.getStringExtra("userName");
         // Display the movie details in the UI
         TextView nameTextView = findViewById(R.id.movieName);
         TextView descriptionTextView = findViewById(R.id.movieDescription);
@@ -56,8 +55,16 @@ public class MovieDetailsActivity extends AppCompatActivity {
     };
 
     private void favouriteButtonClicked(View v) {
-        Intent i = new Intent(this, MainPageActivity.class);
-        i.putExtra("movieName", userName);
-        startActivity(i);
+
+        AccessFavouriteMovie accessFavouriteMovie = new AccessFavouriteMovie(Service.getFavouriteMoviePersistence());
+
+        Movie currMovie = accessFavouriteMovie.addToList(userName,movieName);
+        if(currMovie.getName().equals(movieName)){
+            Toast.makeText(this, "Add successful", Toast.LENGTH_SHORT).show();
+
+        }else{
+            Toast.makeText(this, "Something bad happened, please try again later", Toast.LENGTH_SHORT).show();
+
+        }
     }
 }

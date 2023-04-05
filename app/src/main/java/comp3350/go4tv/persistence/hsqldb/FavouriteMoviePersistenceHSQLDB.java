@@ -103,7 +103,8 @@ public class FavouriteMoviePersistenceHSQLDB implements FavouriteMoviePersistenc
                 rating = rs1.getInt("RATING");
                 path = rs1.getString("PATH");
             }
-
+            Log.d("Moviename",movieName);
+            Log.d("Moviename",userName);
             if(name.equals("")){
                 //movie not in databse
                 return null;
@@ -111,9 +112,12 @@ public class FavouriteMoviePersistenceHSQLDB implements FavouriteMoviePersistenc
                 newMovie = new Movie(name, description, rating);
                 newMovie.setPath(path);
                 //insert new movie to favourite list
+
+
                 final PreparedStatement st = c.prepareStatement("INSERT INTO FAVOURITEMOVIE VALUES(?,?)");
-                st.setString(1, name);
+                st.setString(1, movieName);
                 st.setString(2, userName);
+                st.executeUpdate();
                 return newMovie;
             }
 
