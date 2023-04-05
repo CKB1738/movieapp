@@ -30,6 +30,7 @@ public class MoviePersistenceHSQLDB implements MoviePersistence {
             String id = "";
             String name = "";
             String description = "";
+            String path ="";
             int rating;
             final Statement st = c.createStatement();
             final ResultSet rs = st.executeQuery("SELECT * FROM MOVIE");
@@ -37,9 +38,10 @@ public class MoviePersistenceHSQLDB implements MoviePersistence {
                 name = rs.getString("NAME");
                 description = rs.getString("DESCRIPTION");
                 rating = rs.getInt("RATING");
-
+                path = rs.getString("PATH");
                 if(id.equals(movieName)){
                     Movie currMovie = new Movie(name,description, rating);
+                    currMovie.setPath(path);
                     return currMovie;
                 }
             }
@@ -58,6 +60,7 @@ public class MoviePersistenceHSQLDB implements MoviePersistence {
             String id = "";
             String name = "";
             String description = "";
+            String path ="";
             int rating;
             final Statement st = c.createStatement();
             final ResultSet rs = st.executeQuery("SELECT * FROM MOVIE");
@@ -65,8 +68,10 @@ public class MoviePersistenceHSQLDB implements MoviePersistence {
                 name = rs.getString("NAME");
                 description = rs.getString("DESCRIPTION");
                 rating = rs.getInt("RATING");
+                path = rs.getString("PATH");
                 Movie currMovie = new Movie(name,description, rating);
 
+                currMovie.setPath(path);
                 movieList.add(currMovie);
             }
 
