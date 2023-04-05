@@ -2,20 +2,27 @@ package comp3350.go4tv.business;
 
 import comp3350.go4tv.business.AccessMovie;
 import comp3350.go4tv.objects.Movie;
+import comp3350.go4tv.persistence.MoviePersistence;
+import comp3350.go4tv.persistence.hsqldb.MoviePersistenceHSQLDB;
 import comp3350.go4tv.persistence.stubs.MoviePersistenceStub;
+import comp3350.go4tv.utils.TestUtils;
 
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+import java.io.File;
+import java.io.IOException;
+
 public class AccessMovieTest {
 
     private AccessMovie accessMovie;
-
     @Before
-    public void setUp(){
-        this.accessMovie = new AccessMovie(new MoviePersistenceStub());
+    public void setUp() throws IOException {
+        final MoviePersistence persistence = new MoviePersistenceStub();
+
     }
 
     @Test
@@ -35,6 +42,5 @@ public class AccessMovieTest {
         assertNotNull(accessMovie.getListOfMovie());
         assertTrue(accessMovie.getListOfMovie().size() == 5);
     }
-
 
 }
