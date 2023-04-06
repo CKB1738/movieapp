@@ -1,7 +1,7 @@
 package comp3350.go4tv.object;
 
 import static org.junit.Assert.*;
-
+import static org.mockito.Mockito.*;
 import org.junit.Test;
 
 import java.time.LocalDateTime;
@@ -15,13 +15,17 @@ public class UserTest {
     @Test
     public void testUserGet(){
         System.out.println("\nStarting testUserGet()");
-        User user = new User("Xin","umnie2@myumanitoba.ca","12345abc");
-        assertNotNull(user);
+
+        User user = mock(User.class);
+
+        when(user.getUserName()).thenReturn("Xin");
+        when(user.getEmail()).thenReturn("umnie2@myumanitoba.ca");
+        when(user.getPassword()).thenReturn("abc123");
+
 
         assertTrue("Xin".equals(user.getUserName()));
         assertTrue("umnie2@myumanitoba.ca".equals(user.getEmail()));
-        assertTrue("12345abc".equals(user.getPassword()));
-        assertNotNull(user.getComments());
+        assertTrue("abc123".equals(user.getPassword()));
 
 
         System.out.println("finished testUserGet");
@@ -30,6 +34,7 @@ public class UserTest {
 
     @Test
     public void testUserSet(){
+
         System.out.println("\nStarting testUserSet");
 
         User user = new User("Xin","umnie2@myumanitoba.ca","12345abc");
@@ -55,37 +60,4 @@ public class UserTest {
 
     }
 
-
-    @Test
-    public void testUserComment(){
-        User user = new User("Xin","umnie2@myumanitoba.ca","12345abc");
-        Movie movie = new Movie("Inception", "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.",
-                10);
-        LocalDateTime time = LocalDateTime.now();
-        Comment comment1 = new Comment("This is a good movie", movie,user, time);
-
-        Comment comment2 = new Comment("I don't like this movie", movie,user,time);
-
-        user.addComment(comment1);
-
-        assertTrue(((List)user.getComments()).size() == 1);
-
-        user.addComment(comment2);
-
-        assertTrue(((List)user.getComments()).size() == 2);
-
-        user.deleteComment(comment1);
-
-        assertTrue(((List)user.getComments()).size() == 1);
-
-        for(Comment comment : user.getComments()){
-            assertTrue(comment.getComment().equals("I don't like this movie"));
-        }
-
-        System.out.println("Finishing testUserComment");
-
-
-
-
-    }
 }

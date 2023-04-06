@@ -32,19 +32,6 @@ public class User {
         return email;
     }
 
-    public List<Comment> getComments() {
-        return comments;
-    }
-
-    public Comment addComment(Comment comment){
-        this.comments.add(comment);
-        return comment;
-    }
-    public boolean deleteComment(Comment comment){
-        return this.comments.remove(comment);
-    }
-
-
     public String getPassword() {
         return password;
     }

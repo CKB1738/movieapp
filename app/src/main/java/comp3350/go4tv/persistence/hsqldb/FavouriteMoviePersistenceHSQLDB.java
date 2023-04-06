@@ -44,7 +44,7 @@ public class FavouriteMoviePersistenceHSQLDB implements FavouriteMoviePersistenc
                 path = rs.getString("PATH");
                 if(name.equals(movieName)){
                     currMovie = new Movie(name,description,rating);
-                    currMovie.setPath(path);
+//                    currMovie.setPath(path);
                 }
             }
             return currMovie;
@@ -74,7 +74,7 @@ public class FavouriteMoviePersistenceHSQLDB implements FavouriteMoviePersistenc
                 rating = rs.getInt("RATING");
                 path = rs.getString("PATH");
                 Movie currMovie = new Movie(name,description, rating);
-                currMovie.setPath(path);
+//                currMovie.setPath(path);
                 Log.d("movieName",name);
                 movieList.add(currMovie);
             }
@@ -110,7 +110,7 @@ public class FavouriteMoviePersistenceHSQLDB implements FavouriteMoviePersistenc
                 return null;
             }else {
                 newMovie = new Movie(name, description, rating);
-                newMovie.setPath(path);
+//                newMovie.setPath(path);
                 //insert new movie to favourite list
 
 

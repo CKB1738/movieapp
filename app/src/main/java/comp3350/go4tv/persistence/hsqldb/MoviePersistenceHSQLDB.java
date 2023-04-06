@@ -41,7 +41,7 @@ public class MoviePersistenceHSQLDB implements MoviePersistence {
                 path = rs.getString("PATH");
                 if(id.equals(movieName)){
                     Movie currMovie = new Movie(name,description, rating);
-                    currMovie.setPath(path);
+//                    currMovie.setPath(path);
                     return currMovie;
                 }
             }
@@ -71,7 +71,7 @@ public class MoviePersistenceHSQLDB implements MoviePersistence {
                 path = rs.getString("PATH");
                 Movie currMovie = new Movie(name,description, rating);
 
-                currMovie.setPath(path);
+//                currMovie.setPath(path);
                 movieList.add(currMovie);
             }
 
