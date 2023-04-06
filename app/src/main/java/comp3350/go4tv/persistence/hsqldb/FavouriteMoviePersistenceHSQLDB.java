@@ -94,31 +94,32 @@ public class FavouriteMoviePersistenceHSQLDB implements FavouriteMoviePersistenc
         Movie newMovie = null;
         String path = "";
         try(final Connection c = connection()){
-            final PreparedStatement st1 = c.prepareStatement("SELECT * FROM MOVIE WHERE NAME = ?");//find the move
-            st1.setString(1,movieName);
-            final ResultSet rs1 = st1.executeQuery();
-            while(rs1.next()){
-                name = rs1.getString("NAME");
-                description = rs1.getString("DESCRIPTION");
-                rating = rs1.getInt("RATING");
-                path = rs1.getString("PATH");
-            }
-            Log.d("Moviename",movieName);
-            Log.d("Moviename",userName);
-            if(name.equals("")){
-                //movie not in databse
-                return null;
-            }else {
+
+            final PreparedStatement st2 = c.prepareStatement("SELECT * FROM FAVOURITEMOVIE WHERE MOVIENAME = ? AND USERNAME = ?");
+            st2.setString(1,movieName);
+            st2.setString(2,userName);
+            ResultSet rs2 = st2.executeQuery();
+
+            if(!rs2.next()) {//this movie is in the list
+                final PreparedStatement st1 = c.prepareStatement("SELECT * FROM MOVIE WHERE NAME = ?");//find the move
+                st1.setString(1, movieName);
+                final ResultSet rs1 = st1.executeQuery();
+                while (rs1.next()) {
+                    name = rs1.getString("NAME");
+                    description = rs1.getString("DESCRIPTION");
+                    rating = rs1.getInt("RATING");
+                    path = rs1.getString("PATH");
+                }
                 newMovie = new Movie(name, description, rating);
-//                newMovie.setPath(path);
+
                 //insert new movie to favourite list
-
-
                 final PreparedStatement st = c.prepareStatement("INSERT INTO FAVOURITEMOVIE VALUES(?,?)");
                 st.setString(1, movieName);
                 st.setString(2, userName);
                 st.executeUpdate();
                 return newMovie;
+            }else{
+                return null;
             }
 
         }catch(final SQLException e){

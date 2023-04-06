@@ -59,10 +59,17 @@ public class MovieDetailsActivity extends AppCompatActivity {
         AccessFavouriteMovie accessFavouriteMovie = new AccessFavouriteMovie(Service.getFavouriteMoviePersistence());
 
         Movie currMovie = accessFavouriteMovie.addToList(userName,movieName);
-        if(currMovie.getName().equals(movieName)){
+        if(currMovie == null){
+            Toast.makeText(this, "This Movie is already in your list", Toast.LENGTH_SHORT).show();
+
+        }
+
+        else if(currMovie.getName().equals(movieName)){
             Toast.makeText(this, "Add successful", Toast.LENGTH_SHORT).show();
 
-        }else{
+        }
+
+        else{
             Toast.makeText(this, "Something bad happened, please try again later", Toast.LENGTH_SHORT).show();
 
         }

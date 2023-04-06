@@ -22,4 +22,3 @@ INSERT INTO MOVIE VALUES('Puss in Boots: The Last Wish', 'Puss in Boots discover
 INSERT INTO MOVIE VALUES('Plane', 'After a heroic job of successfully landing his storm-damaged aircraft in a war zone, a fearless pilot finds himself between the agendas of multiple militias planning to take the plane and its passengers hostage.', 69, 'plane')
 INSERT INTO MOVIE VALUES('Little Dixie', 'Erstwhile Special Forces operative Doc Alexander is asked to broker a truce with the Mexican drug cartel in secrecy. When Oklahoma Governor Richard Jeffs celebrates the execution of a high-ranking cartel member on TV, his Chief of Staff and Doc inform him about the peace he just ended. But it's too late, as Cuco, the cartel's hatchet man, has set his vengeful sights on Doca's daughter Dixie', 62, 'little_dixie')
 INSERT INTO FAVOURITEMOVIE VALUES ('Plane','Xin')
-INSERT INTO FAVOURITEMOVIE VALUES ('Little Dixie','Xin')
