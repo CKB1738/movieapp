@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class AccessFacouriteMovieTest {
+public class AccessFavouriteMovieTest {
 
     private AccessFavouriteMovie accessFavouriteMovie;
     private FavouriteMoviePersistence favouriteMoviePersistence;

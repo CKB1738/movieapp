@@ -12,8 +12,6 @@ public class Movie {
     private final String name;
     private final String description;
     private final int rating;
-
-    private String path;
     private ImageView image;
     public Movie(String name, String description, int rating){
         this.name = name;
@@ -32,14 +30,6 @@ public class Movie {
     public int getRating() {
         return rating;
     }
-
-//    public void setPath(String path){
-//        this.path = path;
-//    }
-
-//    public String getPath(){
-//        return this.path;
-//    }
     public int getImage(){
         String name = this.name;
         switch (name){

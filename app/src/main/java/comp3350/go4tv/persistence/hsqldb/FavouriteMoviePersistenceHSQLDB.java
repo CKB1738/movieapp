@@ -38,7 +38,7 @@ public class FavouriteMoviePersistenceHSQLDB implements FavouriteMoviePersistenc
             st.setString(1,movieName);
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
-                name = rs.getString("MOVIENAME");
+                name = rs.getString("NAME");
                 description = rs.getString("DESCRIPTION");
                 rating = rs.getInt("RATING");
                 path = rs.getString("PATH");
@@ -67,7 +67,7 @@ public class FavouriteMoviePersistenceHSQLDB implements FavouriteMoviePersistenc
             final PreparedStatement st = c.prepareStatement("SELECT * FROM FAVOURITEMOVIE JOIN MOVIE ON MOVIE.NAME = FAVOURITEMOVIE.MOVIENAME WHERE FAVOURITEMOVIE.USERNAME = ?");
             st.setString(1,username);
             ResultSet rs = st.executeQuery();
-            Log.d("!!!!!!!!!","!!!!!!");
+            //Log.d("!!!!!!!!!","!!!!!!");
             while (rs.next()) {
                 name = rs.getString("NAME");
                 description = rs.getString("DESCRIPTION");
@@ -75,7 +75,7 @@ public class FavouriteMoviePersistenceHSQLDB implements FavouriteMoviePersistenc
                 path = rs.getString("PATH");
                 Movie currMovie = new Movie(name,description, rating);
 //                currMovie.setPath(path);
-                Log.d("movieName",name);
+//                Log.d("movieName",name);
                 movieList.add(currMovie);
             }
 

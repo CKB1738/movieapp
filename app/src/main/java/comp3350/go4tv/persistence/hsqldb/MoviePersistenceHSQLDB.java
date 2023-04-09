@@ -2,6 +2,7 @@ package comp3350.go4tv.persistence.hsqldb;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -31,25 +32,25 @@ public class MoviePersistenceHSQLDB implements MoviePersistence {
             String name = "";
             String description = "";
             String path ="";
+            Movie currMovie = null;
             int rating;
-            final Statement st = c.createStatement();
-            final ResultSet rs = st.executeQuery("SELECT * FROM MOVIE");
+            final PreparedStatement st = c.prepareStatement("SELECT * FROM MOVIE WHERE MOVIE.NAME = ?");
+            st.setString(1,movieName);
+            ResultSet rs = st.executeQuery();
             while (rs.next()) {
                 name = rs.getString("NAME");
                 description = rs.getString("DESCRIPTION");
                 rating = rs.getInt("RATING");
                 path = rs.getString("PATH");
-                if(id.equals(movieName)){
-                    Movie currMovie = new Movie(name,description, rating);
+                if(name.equals(movieName)){
+                    currMovie = new Movie(name,description, rating);
 //                    currMovie.setPath(path);
-                    return currMovie;
                 }
             }
-
+            return currMovie;
         } catch (final SQLException e){
             throw new PersistenceException(e);
         }
-        return null;
     }
 
     @Override

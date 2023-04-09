@@ -1,5 +1,7 @@
 package comp3350.go4tv.business;
 
+import static junit.framework.TestCase.assertTrue;
+
 import comp3350.go4tv.objects.Movie;
 import comp3350.go4tv.persistence.MoviePersistence;
 import comp3350.go4tv.persistence.hsqldb.MoviePersistenceHSQLDB;
@@ -27,11 +29,11 @@ public class AccessMovieIT {
     @Test
     public void testGetMovie(){
         System.out.println("\nStart testing getMovies");
-        Movie movie = new Movie("Inception","A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.",
-                10);
-        assertTrue("Inception".equals(movie.getName()));
-        assertTrue("A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.".equals(movie.getDescription()));
-        assertTrue(10 == movie.getRating());
+        Movie movie = new Movie("Plane", "After a heroic job of successfully landing his storm-damaged aircraft in a war zone, a fearless pilot finds himself between the agendas of multiple militias planning to take the plane and its passengers hostage.", 69);
+
+        assertTrue(accessMovie.getMovie(movie.getName()).getName().equals(movie.getName()));
+        assertTrue(accessMovie.getMovie(movie.getName()).getDescription().equals(movie.getDescription()));
+        assertTrue(accessMovie.getMovie(movie.getName()).getRating() == movie.getRating());
 
     }
 
