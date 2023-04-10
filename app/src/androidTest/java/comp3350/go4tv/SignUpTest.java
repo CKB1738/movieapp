@@ -28,7 +28,7 @@ public class SignUpTest {
         onView(withId(R.id.signUpButton)).perform(click());
 
         // enter the info for the new user
-        onView(withId(R.id.signUpUsername)).perform(typeText("TestUser2"));
+        onView(withId(R.id.signUpUsername)).perform(typeText("TestUser1"));
         onView(withId(R.id.signUpEmail)).perform(typeText("testuser@email.com"));
         Espresso.closeSoftKeyboard();
         onView(withId(R.id.signUpPassword)).perform(typeText("testuser123"));
@@ -36,7 +36,7 @@ public class SignUpTest {
         onView(withId(R.id.signUpButton)).perform(click());
 
         // sign in with the new user
-        onView(withId(R.id.signInUsername)).perform(typeText("TestUser2"));
+        onView(withId(R.id.signInUsername)).perform(typeText("TestUser1"));
         onView(withId(R.id.signInPassword)).perform(typeText("testuser123"));
         Espresso.closeSoftKeyboard();
         onView(withId(R.id.signInButton)).perform(click());

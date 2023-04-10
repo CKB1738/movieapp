@@ -60,13 +60,12 @@ public class RegistrationActivity extends AppCompatActivity {
                 User newUser = new User(username.getText().toString(),email.getText().toString(),password.getText().toString());
                 accessUser.insertUser(newUser);
                 Toast.makeText(this, "Sign Up successful, please sign in.", Toast.LENGTH_SHORT).show();
-                this.finish();
+
             }else{
-                Toast.makeText(this, "Duplicate username, please change your username", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "User already exists, please sign in.", Toast.LENGTH_SHORT).show();
 
             }
-
-
+            this.finish();
         }
 
         else {
