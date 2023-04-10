@@ -15,5 +15,6 @@ After building the application, simply click on Run.
 
 You can find the structure of Go4TV in [STRUCTURE.md](https://code.cs.umanitoba.ca/comp3350-winter2023/ao1-go4-g4-movies/-/blob/main/ARCHITECTURE.md), and the retrospection in [RETROSPECTIVE.md](https://code.cs.umanitoba.ca/comp3350-winter2023/ao1-go4-g4-movies/-/blob/main/RETROSPECTIVE.md).
 
+Please visit the [link]() for more detail.
 
 
