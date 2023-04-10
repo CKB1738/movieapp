@@ -1,13 +1,12 @@
 package comp3350.go4tv.presentation;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import comp3350.go4tv.R;
 import comp3350.go4tv.business.AccessUser;
@@ -61,8 +60,7 @@ public class RegistrationActivity extends AppCompatActivity {
                 User newUser = new User(username.getText().toString(),email.getText().toString(),password.getText().toString());
                 accessUser.insertUser(newUser);
                 Toast.makeText(this, "Sign Up successful, please sign in.", Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(this, MainActivity.class);
-                startActivity(i);
+                this.finish();
             }else{
                 Toast.makeText(this, "Duplicate username, please change your username", Toast.LENGTH_SHORT).show();
 
