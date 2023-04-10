@@ -5,7 +5,7 @@ Overestimating the number of features we could create before Iteration 2 was due
 
 One action we can take to improve our strategy is to divide the project into smaller, easier-to-manage activities and prioritize them according to their significance and complexity. This would allow us to set realistic deadlines and targets for each work and move forward steadily towards them. In order to raise the standard of our code and lower the amount of bugs, we may also set aside enough time for code review and refactoring.
 
-By counting the number of features finished within the time Iteration 2 was due and comparing it to our initial estimation, we can assess the effectiveness of this strategy. The quantity of problems reported in the software after each iteration, as well as code smells, can be used to evaluate the overall quality of the code. These will let us evaluate the success of our strategy.
+By counting the time we actual spend on the tasks and comparing it to our initial estimation, we can assess the effectiveness of this strategy. The quantity of problems reported in the software after each iteration, as well as code smells, can be used to evaluate the overall quality of the code. These will let us evaluate the success of our strategy. You can view the [velocity chart](https://code.cs.umanitoba.ca/comp3350-winter2023/ao1-go4-g4-movies/-/blob/main/velocity_chart_project.jpeg) here.
 
 Prioritizing testing during each iteration is another option to improve our strategy. Regular testing will help us find and fix errors early on, minimizing the amount of catch-up work needed in following iterations. 
 
