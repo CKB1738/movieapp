@@ -1,32 +1,44 @@
 package comp3350.go4tv.business;
 
-import comp3350.go4tv.business.AccessUser;
 import comp3350.go4tv.objects.User;
-import comp3350.go4tv.persistence.stubs.UserPersistenceStub;
+import comp3350.go4tv.persistence.UserPersistence;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class AccessUserTest {
     private AccessUser accessUser;
-
+    private UserPersistence userPersistence;
     @Before
     public void setUp(){
-        this.accessUser = new AccessUser(new UserPersistenceStub());
+
+        this.userPersistence = mock(UserPersistence.class);
+        this.accessUser = new AccessUser(userPersistence);
+
     }
 
     @Test
     public void testGetUsers(){
         System.out.println("\nstarting test getUsers.");
 
-        assertNotNull(accessUser);
-        assertNotNull(accessUser.getUsers());
-        System.out.println(accessUser.getUsers().size());
-        assertTrue(accessUser.getUsers().size() == 5);
+        final List<User> users = new ArrayList<>();
+        users.add(new User("testUser","testUser@myumaniotba.ca","abc123"));
 
+        when(userPersistence.getUserList()).thenReturn(users);
+
+        final User user = accessUser.getUsers().get(0);
+
+        assertNotNull(user);
+        assertTrue(user.getUserName().equals("testUser"));
+        verify(userPersistence).getUserList();
         System.out.println("End testing getUsers");
     }
 
@@ -34,12 +46,16 @@ public class AccessUserTest {
     public void testFindUser(){
 
         System.out.println("\nstarting test findUser.");
-//        AccessUser accessUser = new AccessUser();
 
-        assertNotNull(accessUser);
-        User testUser = accessUser.findUser("Xin");
+        when(userPersistence.findUser("testUser")).thenReturn(new User("testUser","testUser@myumanitoba.ca","abc123"));
+
+
+
+        User testUser = accessUser.findUser("testUser");
         assertNotNull(testUser);
-        assertEquals("Xin", testUser.getUserName());
+        assertEquals("testUser", testUser.getUserName());
+        verify(userPersistence).findUser("testUser");
+
         System.out.println("End testing findUser");
     }
 
@@ -48,14 +64,11 @@ public class AccessUserTest {
     public void testVerifyUser(){
 
         System.out.println("\nstarting test verifyUser.");
-//        AccessUser accessUser = new AccessUser();
 
-        assertNotNull(accessUser);
-        assertTrue(accessUser.verifyUser("Xin","12345abc"));
-        assertTrue(accessUser.verifyUser("Arsh","123456abc"));
-        assertTrue(accessUser.verifyUser("Het","1234567abc"));
-        assertTrue(accessUser.verifyUser("Owl","12345678abc"));
-        assertTrue(accessUser.verifyUser("Craig","123456789abc"));
+        when(userPersistence.verifyUser("testUser","abc123")).thenReturn(true);
+
+        assertTrue(accessUser.verifyUser("testUser","abc123"));
+        verify(userPersistence).verifyUser("testUser","abc123");
 
         System.out.println("End testing verifyUser");
 
@@ -66,14 +79,17 @@ public class AccessUserTest {
     public void testInsertUser(){
 
         System.out.println("\nstarting test insertUser.");
-//        AccessUser accessUser = new AccessUser();
-        User newUser = new User("testName","test@myumanitoba.ca","testPassword");
+
+
+        User newUser = new User("testUser","testUser@myumanitoba.ca","abc123");
+        when(userPersistence.insertUser(newUser)).thenReturn(newUser);
+
         User testUser = accessUser.insertUser(newUser);
         assertNotNull(testUser);
-        assertTrue(accessUser.getUsers().size() == 6);
+        assertTrue(testUser.getUserName().equals("testUser"));
+        verify(userPersistence).insertUser(newUser);
 
-        User newUser1 = new User("Xin", "umnie2@myumanitoba.ca","12345abc");
-        assertNull(accessUser.insertUser(newUser1));
+
 
         System.out.println("End testInsertUser");
     }
@@ -82,21 +98,12 @@ public class AccessUserTest {
     public void testUpdateUser(){
 
         System.out.println("\nstarting test updateUser.");
-//        AccessUser accessUser = new AccessUser();
 
-        assertNotNull(accessUser);
-
-        User testUser = accessUser.findUser("Xin");
-
+        when(userPersistence.updateUser("testUser", "aaa","aaa@umanitoba.ca")).thenReturn(new User("testUser","aaa@umanitoba.ca","aaa"));
+        User testUser = accessUser.updateUser("testUser", "aaa","aaa@umanitoba.ca");
         assertNotNull(testUser);
-
-        accessUser.updateUser("Xin","my new password", "my new email");
-
-        User updatedUser = accessUser.findUser("Xin");
-        assertNotNull(updatedUser);
-        assertTrue(updatedUser.getEmail().equals("my new email"));
-        assertTrue(updatedUser.getPassword().equals("my new password"));
-        accessUser.updateUser("Xin","12345abc", "umnie2@myumanitoba.ca");
+        assertTrue(testUser.getEmail().equals("aaa@umanitoba.ca"));
+        verify(userPersistence).updateUser("testUser", "aaa","aaa@umanitoba.ca");
         System.out.println("End test UpdateUser");
 
     }

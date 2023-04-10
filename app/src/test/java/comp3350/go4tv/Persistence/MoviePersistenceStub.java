@@ -1,4 +1,4 @@
-package comp3350.go4tv.persistence.stubs;
+package comp3350.go4tv.Persistence;
 
 import java.util.ArrayList;
 import java.util.List;

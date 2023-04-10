@@ -1,7 +1,5 @@
 package comp3350.go4tv.presentation;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
@@ -12,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -20,7 +20,6 @@ import java.io.InputStreamReader;
 import comp3350.go4tv.R;
 import comp3350.go4tv.application.Main;
 import comp3350.go4tv.business.AccessUser;
-import comp3350.go4tv.business.validator.EmailValidator;
 import comp3350.go4tv.business.validator.FieldValidator;
 
 public class MainActivity extends AppCompatActivity {
@@ -129,7 +128,8 @@ public class MainActivity extends AppCompatActivity {
 
             File outFile = new File(copyPath);
 
-            if (!outFile.exists()) {
+            //if (!outFile.exists()) {
+            if(true){
                 InputStreamReader in = new InputStreamReader(assetManager.open(asset));
                 FileWriter out = new FileWriter(outFile);
 
